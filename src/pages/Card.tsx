@@ -1,17 +1,7 @@
-import {
-  Flex,
-  Box,
-  useColorModeValue,
-  Button,
-  Link,
-  Image,
-  GridItem,
-  Grid,
-} from "@chakra-ui/react";
-import { useState, useContext } from "react";
+import { Flex, Box, Link, Image, GridItem, Grid } from "@chakra-ui/react";
+import { useState } from "react";
 import { Middle, BgImg } from "../styles/cardstyles";
 import { trpc } from "../utils/trpc";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
 const data = {
   isNew: true,
