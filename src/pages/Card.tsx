@@ -1,34 +1,6 @@
 import { Flex, Box, useColorModeValue, Button } from "@chakra-ui/react";
-import styled from "styled-components";
 import { useState } from "react";
-
-//custom components with styled components
-const Middle = styled.div`
-  transition: 0.5s ease;
-  opacity: 1;
-  position: absolute;
-  bottom: 25%;
-  left: 36%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: left;
-`;
-
-const BgImg = styled.img`
-  opacity: 1;
-  display: block;
-  border-radius: 10px;
-  width: 100%;
-  height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
-
-  &:hover {
-    filter: brightness(50%);
-  }
-`;
-
-//End of custom components
+import { Middle, BgImg } from "../styles/cardstyles";
 
 const data = {
   isNew: true,
@@ -43,7 +15,6 @@ const data = {
 function Card() {
   const [isUsers, setUsers] = useState([]);
 
-  //   const colorHook = useColorModeValue("white", "gray.800");
   return (
     <>
       <Flex p={3} w="full" alignItems="center" justifyContent="center">
