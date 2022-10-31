@@ -12,6 +12,7 @@ import Link from "next/link";
 import Card from "./Card";
 import { useMediaQuery } from "react-responsive";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function IndexPage() {
   const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
@@ -41,6 +42,7 @@ export default function IndexPage() {
           </WrapItem>
         </Wrap>
       </Box>
+      <Footer />
     </Box>
   );
 }
