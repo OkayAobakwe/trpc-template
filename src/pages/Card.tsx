@@ -3,16 +3,6 @@ import { useState } from "react";
 import { Middle, BgImg } from "../styles/cardstyles";
 import { trpc } from "../utils/trpc";
 
-const data = {
-  isNew: true,
-  imageURL: "",
-  name: "Dummy Data AB",
-  price: 4.5,
-  rating: 4.2,
-  numReviews: 34,
-  id: 1,
-};
-
 function Card() {
   const [isUsers, setUsers] = useState([]);
 
@@ -39,7 +29,7 @@ function Card() {
                 shadow="2xl"
                 position="relative"
                 key={1}
-                h="sm" // changed height to small
+                h="sm"
               >
                 <Link href={`/pokemon/${pokemon.name}`} key={pokemon.url}>
                   <BgImg
