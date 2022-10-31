@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import Card from "./Card";
 import { useMediaQuery } from "react-responsive";
+import Navbar from "./Navbar";
 
 export default function IndexPage() {
   const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
@@ -23,6 +24,7 @@ export default function IndexPage() {
 
   return (
     <Box>
+      <Navbar />
       <Text align="center" fontSize="xl" mt={10}>
         {" "}
         Welcome to the world of Pokemon{" "}
