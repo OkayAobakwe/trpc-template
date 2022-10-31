@@ -44,7 +44,7 @@ function Card() {
             shadow="xl"
             position="relative"
             key={1}
-            h="sm"
+            h="sm" // changed height to small
           >
             <Link href={`/pokemon/${pokemon.name}`} key={pokemon.url}>
               <BgImg
