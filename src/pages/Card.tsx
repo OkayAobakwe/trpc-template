@@ -20,14 +20,14 @@ function Card() {
       <Flex p={3} w="full" alignItems="center" justifyContent="center">
         <Box
           bg="gray"
-          w="xl"
+          w="md"
           border="none"
           borderWidth="1px"
           rounded="lg"
           shadow="xl"
           position="relative"
           key={1}
-          h="xl"
+          h="md"
         >
           <BgImg
             key={1} //INSERT ID FROM API
