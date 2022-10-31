@@ -1,6 +1,14 @@
-import { Flex, Box, useColorModeValue, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  useColorModeValue,
+  Button,
+  Link,
+  Image,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { Middle, BgImg } from "../styles/cardstyles";
+import { trpc } from "../utils/trpc";
 
 const data = {
   isNew: true,
@@ -15,42 +23,63 @@ const data = {
 function Card() {
   const [isUsers, setUsers] = useState([]);
 
+  const pokemon = trpc.pokemons.useQuery();
+
   return (
     <>
-      <Flex p={3} w="full" alignItems="center" justifyContent="center">
-        <Box
-          bg="gray"
-          w="md"
-          border="none"
-          borderWidth="1px"
-          rounded="lg"
-          shadow="xl"
-          position="relative"
-          key={1}
-          h="md"
-        >
-          <BgImg
-            key={1} //INSERT ID FROM API
-            src="" //INSERT IMAGE FROM API
-            alt={`Picture of`} // INSERT ALT IMAGE TEXT FROM API
-            style={{ width: "100%" }}
-          />
+      <Flex
+        p={3}
+        w="full"
+        alignItems="center"
+        justifyContent="center"
+        overflow="auto"
+      >
+        {pokemon.data?.pokemonList?.map((pokemon) => (
+          <Box
+            bg="gray"
+            w="sm"
+            border="none"
+            borderWidth="1px"
+            rounded="lg"
+            shadow="xl"
+            position="relative"
+            key={1}
+            h="sm"
+          >
+            <Link href={`/pokemon/${pokemon.name}`} key={pokemon.url}>
+              <BgImg
+                src="" //INSERT IMAGE FROM API
+                alt={`Picture of`} // INSERT ALT IMAGE TEXT FROM API
+                style={{ width: "100%" }}
+              />
 
-          <Middle>
-            <Flex mt="1" justifyContent="space-between" alignContent="center">
-              <Box
-                fontSize="2xl"
-                fontWeight="semibold"
-                as="h4"
-                lineHeight="tight"
-                style={{ color: "#000" }}
-                alignItems={"left"}
-              >
-                INSERT NAME AB
-              </Box>
-            </Flex>
-          </Middle>
-        </Box>
+              <Middle>
+                <Flex
+                  mt="1"
+                  justifyContent="space-between"
+                  alignContent="center"
+                >
+                  <Box
+                    fontSize="2xl"
+                    fontWeight="semibold"
+                    as="h4"
+                    lineHeight="tight"
+                    style={{ color: "#000" }}
+                    alignItems={"left"}
+                  >
+                    <Image
+                      src={pokemon.sprites}
+                      alt="poke"
+                      width={100}
+                      height={100}
+                    />
+                    {pokemon.name}
+                  </Box>
+                </Flex>
+              </Middle>
+            </Link>
+          </Box>
+        ))}
       </Flex>
     </>
   );

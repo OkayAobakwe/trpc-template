@@ -36,6 +36,7 @@ export const appRouter = router({
       return {
         pokemon: await api
           .getPokemonByName(`${input.name}`)
+
           .then((data) => {
             return data;
           })
