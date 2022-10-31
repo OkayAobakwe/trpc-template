@@ -1,4 +1,5 @@
 import { trpc } from "../utils/trpc";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 
 export default function IndexPage() {
   const hello = trpc.hello.useQuery({ text: "client" });
@@ -6,8 +7,18 @@ export default function IndexPage() {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      <p>{hello.data.greeting}</p>
-    </div>
+    <Flex
+      align="center"
+      justify="center"
+      flexDirection="column"
+      flex={1}
+      bgColor="blue"
+    >
+      <Stack spacing={8} mx="auto" width="lg" paddingX={6}>
+        <Box rounded="xl" bg="white" boxShadow="lg" padding={8}>
+          <Text color="black">Welcome to the trpc template</Text>
+        </Box>
+      </Stack>
+    </Flex>
   );
 }
